@@ -1,0 +1,19 @@
+spring:
+  aplication:
+    name: demo
+  postgresql:
+    console.enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    drive-class-name: org.postgresql.Driver
+    username: postgres
+    password: M#m90012
+  jpa:
+    show-sql: true # Opcional: mostra os SQLs gerados
+    hibernate:
+      #ddl-auto: create # 'update', 'create', 'validate', 'none'. 'update' � comum em desenvolvimento
+      dialect: org.hibernate.dialect.PostgreSQLDialect # Dialeto para o Hibernate
+
+
+
+
