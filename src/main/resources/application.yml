@@ -1,8 +1,6 @@
 spring:
-  aplication:
+  application:
     name: demo
-  postgresql:
-    console.enabled: true
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     drive-class-name: org.postgresql.Driver
@@ -11,8 +9,20 @@ spring:
   jpa:
     show-sql: true # Opcional: mostra os SQLs gerados
     hibernate:
-      #ddl-auto: create # 'update', 'create', 'validate', 'none'. 'update' � comum em desenvolvimento
+      #ddl-auto: none # 'update', 'create', 'validate', 'none'. 'update' � comum em desenvolvimento
       dialect: org.hibernate.dialect.PostgreSQLDialect # Dialeto para o Hibernate
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+
+
+
+
+
+
+
 
 
 
