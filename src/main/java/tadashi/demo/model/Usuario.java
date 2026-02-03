@@ -15,8 +15,10 @@ public class Usuario {
     private String cpf;
     private String rg;
     private String telefone;
-    private String tipoUsuario;
-    private String ativo;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario", nullable = false)
+    private TipoUsuario tipoUsuario;
+    private boolean ativo;
     private String dataCriacao;
 
 
@@ -76,19 +78,19 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public String getTipoUsuario() {
+    public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(String tipo_usuario) {
+    public void setTipoUsuario(TipoUsuario tipo_usuario) {
         this.tipoUsuario = tipo_usuario;
     }
 
-    public String getAtivo() {
+    public boolean getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(String ativo) {
+    public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
 
