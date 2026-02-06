@@ -14,6 +14,12 @@ public class Usuario {
     private String senha;
     private String cpf;
     private String rg;
+    private String telefone;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario", nullable = false)
+    private TipoUsuario tipoUsuario;
+    private boolean ativo;
+    private String dataCriacao;
 
 
     public Long getId() {
@@ -63,4 +69,38 @@ public class Usuario {
     public void setRg(String rg) {
         this.rg = rg;
     }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipo_usuario) {
+        this.tipoUsuario = tipo_usuario;
+    }
+
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao() {
+        this.dataCriacao = dataCriacao;
+    }
+
+
 }
