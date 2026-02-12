@@ -32,12 +32,19 @@ public class UsuarioService {
 
         existente.setNome(usuario.getNome());
         existente.setEmail(usuario.getEmail());
+        existente.setSenha(usuario.getSenha());
+        existente.setCpf(usuario.getCpf());
+        existente.setRg(usuario.getRg());
+        existente.setTelefone(usuario.getTelefone());
+        existente.setTipoUsuario(usuario.getTipoUsuario());
+        existente.setAtivo(usuario.getAtivo());
+
 
 
         return usuarioRepository.save(existente);
     }
 
-    public void deletar(Long id) {
+    public void excluir(Long id) {
         if (!usuarioRepository.existsById(id)) {
             throw new RuntimeException("Usuário não encontrado");
         }

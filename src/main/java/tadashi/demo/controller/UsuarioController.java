@@ -10,37 +10,37 @@ import tadashi.demo.service.UsuarioService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/{usuarios}")
 public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping
-    public List<Usuario> buscarUsuario() {
+    public List<Usuario> buscarUsuarios() {
         return this.usuarioService.buscar();
     }
 
     @GetMapping("/{id}")
-    public Usuario buscarUsuarios(@PathVariable Long id) {
+    public Usuario buscarUsuario(@PathVariable Long id) {
         return this.usuarioService.buscarPorId(id);
     }
 
     @PostMapping
-    public Usuario salvarUsuario(@RequestBody Usuario usuario) {
+    public Usuario criarUsuario(@RequestBody Usuario usuario) {
         return this.usuarioService.salvar(usuario);
     }
 
-    @PutMapping("/id")
-    public ResponseEntity<Usuario> atualizar(
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> editarUsuario(
             @PathVariable Long id,
             @RequestBody Usuario usuario) {
-        Usuario usuarioAtualizar = usuarioService.atualizar(id, usuario);
-        return ResponseEntity.ok(usuarioAtualizar);
+        Usuario usuarioEditado = usuarioService.atualizar(id, usuario);
+        return ResponseEntity.ok(usuarioEditado);
     }
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        usuarioService.deletar(id);
+        usuarioService.excluir(id);
         return ResponseEntity.noContent().build();
 
     }
